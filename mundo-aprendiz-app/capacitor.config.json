@@ -1,0 +1,21 @@
+{
+  "appId": "com.mundoaprendiz.app",
+  "appName": "Mundo Aprendiz",
+  "webDir": "www",
+  "backgroundColor": "#FFF7EC",
+  "server": {
+    "androidScheme": "https"
+  },
+  "plugins": {
+    "SplashScreen": {
+      "launchShowDuration": 1200,
+      "backgroundColor": "#FFF7EC",
+      "androidSplashResourceName": "splash",
+      "showSpinner": false
+    },
+    "StatusBar": {
+      "style": "DARK",
+      "backgroundColor": "#FFF7EC"
+    }
+  }
+}

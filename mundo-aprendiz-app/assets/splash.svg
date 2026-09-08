@@ -1,0 +1,13 @@
+<svg width="2732" height="2732" viewBox="0 0 2732 2732" xmlns="http://www.w3.org/2000/svg">
+  <rect width="2732" height="2732" fill="#FFF7EC"/>
+  <circle cx="1366" cy="1450" r="330" fill="#9B5FE0"/>
+  <circle cx="1234" cy="1390" r="55" fill="white"/>
+  <circle cx="1498" cy="1390" r="55" fill="white"/>
+  <circle cx="1234" cy="1390" r="24" fill="#2E2A38"/>
+  <circle cx="1498" cy="1390" r="24" fill="#2E2A38"/>
+  <path d="M1214 1530 Q1366 1630 1518 1530" stroke="white" stroke-width="34" fill="none" stroke-linecap="round"/>
+  <circle cx="1084" cy="1220" r="46" fill="#9B5FE0"/>
+  <circle cx="1648" cy="1220" r="46" fill="#9B5FE0"/>
+  <circle cx="1366" cy="1110" r="70" fill="#FFC845"/>
+  <text x="1366" y="1900" font-family="Fredoka, sans-serif" font-size="90" font-weight="700" fill="#2E2A38" text-anchor="middle">Mundo Aprendiz</text>
+</svg>

@@ -1,0 +1,477 @@
+/* =========================================================
+   Mundo Aprendiz — design tokens
+   Paleta pensada para crianças 2-8 anos: alegre mas suave,
+   fundo creme quente, formas arredondadas, sem contrastes agressivos.
+========================================================= */
+:root{
+  --cream: #FFF7EC;
+  --paper: #FFFFFF;
+  --ink: #2E2A38;
+  --ink-soft: #6B6577;
+
+  --coral: #FF6F5E;
+  --coral-dark: #E1543F;
+  --sky: #38B6C2;
+  --sun: #FFC845;
+  --grass: #58C97D;
+  --berry: #9B5FE0;
+  --sand: #F1D9B5;
+
+  --radius-lg: 28px;
+  --radius-md: 18px;
+  --radius-sm: 12px;
+  --shadow-soft: 0 10px 24px rgba(46, 42, 56, 0.10);
+  --shadow-press: 0 4px 10px rgba(46, 42, 56, 0.12);
+
+  --font-display: 'Fredoka', system-ui, sans-serif;
+  --font-body: 'Nunito', system-ui, sans-serif;
+}
+
+*{ box-sizing: border-box; }
+
+html, body{
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+  background: var(--cream);
+  color: var(--ink);
+  font-family: var(--font-body);
+  -webkit-tap-highlight-color: transparent;
+  overscroll-behavior: none;
+}
+
+h1, h2, h3{
+  font-family: var(--font-display);
+  margin: 0 0 8px 0;
+  color: var(--ink);
+}
+
+button{
+  font-family: var(--font-body);
+  cursor: pointer;
+}
+
+:focus-visible{
+  outline: 3px solid var(--sky);
+  outline-offset: 3px;
+}
+
+#app{
+  max-width: 480px;
+  margin: 0 auto;
+  min-height: 100vh;
+  position: relative;
+  padding: 20px 20px 40px;
+  overflow-x: hidden;
+}
+
+.screen{
+  display: none;
+  animation: fade-in .25s ease;
+}
+.screen.active{ display: block; }
+
+@keyframes fade-in{
+  from{ opacity: 0; transform: translateY(6px); }
+  to{ opacity: 1; transform: translateY(0); }
+}
+
+/* ---------- Botões genéricos ---------- */
+.btn{
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  width: 100%;
+  padding: 16px 20px;
+  border: none;
+  border-radius: var(--radius-md);
+  font-size: 1.1rem;
+  font-weight: 700;
+  font-family: var(--font-display);
+  box-shadow: var(--shadow-soft);
+  transition: transform .12s ease, box-shadow .12s ease;
+}
+.btn:active{ transform: translateY(2px) scale(.99); box-shadow: var(--shadow-press); }
+
+.btn-primary{ background: var(--coral); color: white; }
+.btn-secondary{ background: var(--paper); color: var(--ink); border: 2px dashed var(--sand); }
+.btn-danger{ background: #FFEAE7; color: var(--coral-dark); border: 2px solid #FFD3CC; }
+
+.btn-icon{
+  border: none;
+  background: var(--paper);
+  border-radius: 50%;
+  width: 48px;
+  height: 48px;
+  font-size: 1.3rem;
+  box-shadow: var(--shadow-soft);
+}
+
+.btn-back{
+  background: none;
+  border: none;
+  color: var(--ink-soft);
+  font-family: var(--font-body);
+  font-weight: 800;
+  font-size: 0.95rem;
+  padding: 8px 0;
+  margin-bottom: 8px;
+}
+
+.link-parents{
+  display: block;
+  margin: 28px auto 0;
+  background: none;
+  border: none;
+  color: var(--ink-soft);
+  text-decoration: underline;
+  font-size: 0.9rem;
+}
+
+/* =========================================================
+   ECRÃ: Perfis
+========================================================= */
+.brand{
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  justify-content: center;
+  margin-top: 12px;
+}
+.brand-mark{ width: 56px; height: 56px; }
+.brand h1{ font-size: 1.6rem; }
+
+.subtitle{
+  text-align: center;
+  color: var(--ink-soft);
+  font-weight: 700;
+  margin: 4px 0 24px;
+}
+
+.profile-grid{
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 14px;
+  margin-bottom: 20px;
+}
+
+.profile-card{
+  background: var(--paper);
+  border-radius: var(--radius-md);
+  border: none;
+  padding: 14px 6px 10px;
+  box-shadow: var(--shadow-soft);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+}
+.profile-card .avatar-badge{ font-size: 2.2rem; }
+.profile-card .profile-name{
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 0.95rem;
+  color: var(--ink);
+  max-width: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.btn-add{ margin-top: 6px; }
+.btn-add .plus{ font-size: 1.3rem; }
+
+/* =========================================================
+   ECRÃ: Criar perfil
+========================================================= */
+.field-label{
+  display: block;
+  font-weight: 800;
+  margin: 18px 0 8px;
+  color: var(--ink);
+}
+
+.text-input{
+  width: 100%;
+  padding: 14px 16px;
+  border-radius: var(--radius-sm);
+  border: 2px solid var(--sand);
+  background: var(--paper);
+  font-family: var(--font-body);
+  font-size: 1rem;
+  color: var(--ink);
+}
+.text-input:focus{ border-color: var(--sky); }
+
+.avatar-grid{
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 10px;
+}
+.avatar-option{
+  aspect-ratio: 1;
+  border-radius: var(--radius-sm);
+  border: 3px solid transparent;
+  background: var(--paper);
+  font-size: 1.6rem;
+  box-shadow: var(--shadow-soft);
+}
+.avatar-option.selected{ border-color: var(--coral); background: #FFEDEA; }
+
+#btn-save-profile{ margin-top: 28px; }
+
+/* =========================================================
+   ECRÃ: Mapa de aventura
+========================================================= */
+.map-header{
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 10px;
+}
+.who-avatar{ display: flex; align-items: center; gap: 8px; flex: 1; }
+.avatar-badge{ font-size: 1.6rem; }
+.who-name{ font-family: var(--font-display); font-weight: 600; }
+
+.stars-counter{
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  background: var(--paper);
+  padding: 6px 12px;
+  border-radius: 999px;
+  box-shadow: var(--shadow-soft);
+  font-weight: 800;
+  font-family: var(--font-display);
+}
+.star-icon{ width: 18px; height: 18px; fill: var(--sun); }
+
+.mascot-bubble{
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin: 14px 0 22px;
+}
+.mascot-blob{ width: 56px; height: 56px; flex-shrink: 0; }
+.mascot-blob svg{ width: 100%; height: 100%; }
+.speech{
+  background: var(--paper);
+  border-radius: var(--radius-md);
+  padding: 10px 14px;
+  font-weight: 700;
+  font-size: 0.92rem;
+  box-shadow: var(--shadow-soft);
+  margin: 0;
+}
+
+.adventure-map{
+  position: relative;
+  height: 420px;
+  width: 100%;
+}
+.map-path{
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+.map-path path{ opacity: .6; }
+
+.island{
+  position: absolute;
+  left: var(--x);
+  top: var(--y);
+  transform: translate(-50%, -50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  width: 108px;
+  border: none;
+  background: none;
+  padding: 0;
+}
+.island-icon{
+  font-size: 1.8rem;
+  width: 72px;
+  height: 72px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: var(--shadow-soft);
+  border: 4px solid var(--paper);
+}
+.island-1 .island-icon{ background: #FFE1DB; }
+.island-2 .island-icon{ background: #DDF3F5; }
+.island-3 .island-icon{ background: #EDE1FB; }
+.island-4 .island-icon{ background: #E1F7E8; }
+
+.island-num{
+  position: relative;
+  align-self: flex-end;
+  margin-right: 8px;
+  margin-bottom: -14px;
+  background: var(--sun);
+  color: var(--ink);
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 0.75rem;
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 2px solid var(--paper);
+  z-index: 2;
+}
+.island-label{
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 0.8rem;
+  text-align: center;
+  color: var(--ink);
+}
+.island.locked{ opacity: .45; filter: grayscale(.4); pointer-events: none; }
+.island:active .island-icon{ transform: scale(.94); }
+
+/* =========================================================
+   ECRÃ: Lista de atividades
+========================================================= */
+.activities-grid{
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 14px;
+  margin-top: 16px;
+}
+.activity-card{
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  background: var(--paper);
+  border: none;
+  border-radius: var(--radius-md);
+  padding: 16px;
+  box-shadow: var(--shadow-soft);
+  text-align: left;
+}
+.activity-card .emoji{ font-size: 1.8rem; }
+.activity-card .info{ flex: 1; }
+.activity-card .info strong{ display: block; font-family: var(--font-display); }
+.activity-card .stars-mini{ font-size: 0.85rem; color: var(--ink-soft); }
+.activity-card.done{ background: #F3FBF5; }
+
+/* =========================================================
+   ECRÃ: Atividade
+========================================================= */
+.activity-progress{
+  height: 10px;
+  background: var(--sand);
+  border-radius: 999px;
+  overflow: hidden;
+  margin: 6px 0 24px;
+}
+.activity-progress-bar{
+  height: 100%;
+  width: 0%;
+  background: var(--grass);
+  border-radius: 999px;
+  transition: width .3s ease;
+}
+
+.activity-question{
+  text-align: center;
+  font-size: 1.6rem;
+  margin-bottom: 14px;
+}
+
+.btn-audio{
+  display: block;
+  margin: 0 auto 20px;
+  background: var(--sky);
+  color: white;
+}
+
+.activity-options{
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 14px;
+}
+.option-btn{
+  aspect-ratio: 1;
+  border: none;
+  border-radius: var(--radius-md);
+  background: var(--paper);
+  font-size: 2.4rem;
+  box-shadow: var(--shadow-soft);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform .12s ease;
+}
+.option-btn:active{ transform: scale(.95); }
+.option-btn.correct{ background: #DFF6E5; box-shadow: 0 0 0 3px var(--grass) inset; }
+.option-btn.wrong{ background: #FDE4E1; box-shadow: 0 0 0 3px var(--coral) inset; }
+
+/* =========================================================
+   ECRÃ: Recompensa
+========================================================= */
+#screen-reward{ position: relative; text-align: center; padding-top: 60px; }
+#confetti-canvas{
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
+.reward-box{ position: relative; z-index: 2; }
+.reward-mascot{ width: 96px; height: 96px; margin: 0 auto 12px; }
+.reward-mascot svg{ width: 100%; height: 100%; }
+.reward-stars{ font-size: 2rem; margin: 14px 0 28px; }
+.reward-stars span{ display: inline-block; animation: pop .4s ease backwards; }
+.reward-stars span:nth-child(2){ animation-delay: .12s; }
+.reward-stars span:nth-child(3){ animation-delay: .24s; }
+@keyframes pop{
+  from{ transform: scale(0); opacity: 0; }
+  to{ transform: scale(1); opacity: 1; }
+}
+
+/* =========================================================
+   ECRÃ: Portão dos pais / Modo pais
+========================================================= */
+.gate-box{ text-align: center; margin-top: 60px; }
+.gate-question{ font-family: var(--font-display); font-size: 1.8rem; margin: 14px 0; }
+.gate-input{ text-align: center; font-size: 1.4rem; margin-bottom: 16px; }
+.gate-error{ color: var(--coral-dark); font-weight: 700; min-height: 20px; }
+
+.parents-section{
+  background: var(--paper);
+  border-radius: var(--radius-md);
+  padding: 16px;
+  margin-bottom: 16px;
+  box-shadow: var(--shadow-soft);
+}
+.parents-section h3{ font-size: 1.05rem; }
+.parents-section .hint{ color: var(--ink-soft); font-size: 0.88rem; margin: 4px 0 12px; }
+
+.report-row{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px 0;
+  border-bottom: 1px solid #F1EAE0;
+  font-weight: 700;
+}
+.report-row:last-child{ border-bottom: none; }
+
+.time-limit-row{ display: flex; align-items: center; gap: 12px; }
+.time-limit-row input[type="range"]{ flex: 1; }
+
+/* =========================================================
+   Responsivo
+========================================================= */
+@media (min-width: 520px){
+  #app{ padding: 32px 32px 48px; }
+}

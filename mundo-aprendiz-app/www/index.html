@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="pt-PT">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1, user-scalable=no">
+<title>Mundo Aprendiz</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<div id="app">
+
+  <!-- ===================== ECRÃ: SELEÇÃO DE PERFIL ===================== -->
+  <section id="screen-profiles" class="screen active">
+    <div class="brand">
+      <svg class="brand-mark" viewBox="0 0 64 64" aria-hidden="true">
+        <circle cx="32" cy="32" r="30" fill="var(--sun)"/>
+        <circle cx="22" cy="28" r="5" fill="var(--ink)"/>
+        <circle cx="42" cy="28" r="5" fill="var(--ink)"/>
+        <path d="M20 40 Q32 50 44 40" stroke="var(--ink)" stroke-width="4" fill="none" stroke-linecap="round"/>
+      </svg>
+      <h1>Mundo Aprendiz</h1>
+    </div>
+
+    <p class="subtitle">Quem vai brincar e aprender hoje?</p>
+
+    <div id="profile-grid" class="profile-grid"></div>
+
+    <button id="btn-add-profile" class="btn btn-secondary btn-add">
+      <span class="plus">+</span> Criar novo explorador
+    </button>
+
+    <button id="btn-open-parents-from-profiles" class="link-parents">Área dos pais</button>
+  </section>
+
+  <!-- ===================== ECRÃ: CRIAR PERFIL ===================== -->
+  <section id="screen-create-profile" class="screen">
+    <button class="btn-back" data-target="screen-profiles">← Voltar</button>
+    <h2>Novo explorador</h2>
+
+    <label class="field-label" for="input-name">Como se chama?</label>
+    <input id="input-name" class="text-input" type="text" maxlength="16" placeholder="Nome">
+
+    <label class="field-label">Escolhe o teu avatar</label>
+    <div id="avatar-grid" class="avatar-grid"></div>
+
+    <label class="field-label" for="input-age">Idade</label>
+    <select id="input-age" class="text-input">
+      <option value="3">3 anos</option>
+      <option value="4">4 anos</option>
+      <option value="5" selected>5 anos</option>
+      <option value="6">6 anos</option>
+      <option value="7">7 anos</option>
+      <option value="8">8 anos</option>
+    </select>
+
+    <button id="btn-save-profile" class="btn btn-primary">Começar a aventura!</button>
+  </section>
+
+  <!-- ===================== ECRÃ: MAPA DE AVENTURA (MENU) ===================== -->
+  <section id="screen-map" class="screen">
+    <header class="map-header">
+      <div class="who-avatar">
+        <span id="map-avatar" class="avatar-badge"></span>
+        <span id="map-name" class="who-name"></span>
+      </div>
+      <div class="stars-counter">
+        <svg viewBox="0 0 24 24" class="star-icon"><path d="M12 2l2.9 6.6L22 9.3l-5 4.9L18.2 22 12 18.3 5.8 22 7 14.2l-5-4.9 7.1-.7z"/></svg>
+        <span id="stars-total">0</span>
+      </div>
+      <button id="btn-switch-profile" class="btn-icon" title="Trocar explorador">👤</button>
+    </header>
+
+    <div class="mascot-bubble">
+      <div class="mascot-blob">
+        <svg viewBox="0 0 64 64" aria-hidden="true">
+          <circle cx="32" cy="34" r="26" fill="var(--berry)"/>
+          <circle cx="23" cy="30" r="4.5" fill="white"/>
+          <circle cx="41" cy="30" r="4.5" fill="white"/>
+          <circle cx="23" cy="30" r="2" fill="var(--ink)"/>
+          <circle cx="41" cy="30" r="2" fill="var(--ink)"/>
+          <path d="M22 42 Q32 50 42 42" stroke="white" stroke-width="3.5" fill="none" stroke-linecap="round"/>
+          <circle cx="14" cy="18" r="4" fill="var(--berry)"/>
+          <circle cx="50" cy="18" r="4" fill="var(--berry)"/>
+        </svg>
+      </div>
+      <p id="mascot-text" class="speech">Olá! Escolhe uma ilha para explorares comigo. 🌟</p>
+    </div>
+
+    <div class="adventure-map">
+      <svg class="map-path" viewBox="0 0 320 420" preserveAspectRatio="none" aria-hidden="true">
+        <path d="M60 380 C 140 380, 20 300, 100 260 S 60 160, 150 130 S 260 80, 250 40" stroke="var(--sand)" stroke-width="10" fill="none" stroke-linecap="round" stroke-dasharray="2 22"/>
+      </svg>
+
+      <button class="island island-1" data-area="letras" style="--x:60px; --y:380px;">
+        <span class="island-num">1</span>
+        <span class="island-icon">🔤</span>
+        <span class="island-label">Letras e Leitura</span>
+      </button>
+
+      <button class="island island-2" data-area="numeros" style="--x:100px; --y:260px;">
+        <span class="island-num">2</span>
+        <span class="island-icon">🔢</span>
+        <span class="island-label">Números</span>
+      </button>
+
+      <button class="island island-3" data-area="logica" style="--x:150px; --y:130px;">
+        <span class="island-num">3</span>
+        <span class="island-icon">🧩</span>
+        <span class="island-label">Lógica</span>
+      </button>
+
+      <button class="island island-4" data-area="mundo" style="--x:250px; --y:40px;">
+        <span class="island-num">4</span>
+        <span class="island-icon">🌎</span>
+        <span class="island-label">O Mundo</span>
+      </button>
+    </div>
+  </section>
+
+  <!-- ===================== ECRÃ: LISTA DE ATIVIDADES DE UMA ÁREA ===================== -->
+  <section id="screen-activities" class="screen">
+    <button class="btn-back" data-target="screen-map">← Mapa</button>
+    <h2 id="activities-title">Área</h2>
+    <div id="activities-grid" class="activities-grid"></div>
+  </section>
+
+  <!-- ===================== ECRÃ: ATIVIDADE ===================== -->
+  <section id="screen-activity" class="screen">
+    <button class="btn-back" data-target="screen-activities">← Sair</button>
+    <div class="activity-progress">
+      <div id="activity-progress-bar" class="activity-progress-bar"></div>
+    </div>
+    <h2 id="activity-question" class="activity-question"></h2>
+    <button id="btn-replay-audio" class="btn-icon btn-audio" title="Ouvir novamente">🔊</button>
+    <div id="activity-options" class="activity-options"></div>
+  </section>
+
+  <!-- ===================== ECRÃ: RECOMPENSA ===================== -->
+  <section id="screen-reward" class="screen">
+    <canvas id="confetti-canvas"></canvas>
+    <div class="reward-box">
+      <div class="reward-mascot">
+        <svg viewBox="0 0 64 64" aria-hidden="true">
+          <circle cx="32" cy="34" r="26" fill="var(--grass)"/>
+          <circle cx="23" cy="28" r="4.5" fill="white"/>
+          <circle cx="41" cy="28" r="4.5" fill="white"/>
+          <circle cx="23" cy="28" r="2" fill="var(--ink)"/>
+          <circle cx="41" cy="28" r="2" fill="var(--ink)"/>
+          <path d="M20 38 Q32 52 44 38" stroke="white" stroke-width="4" fill="none" stroke-linecap="round"/>
+        </svg>
+      </div>
+      <h2>Muito bem!</h2>
+      <p id="reward-text">Ganhaste estrelas novas!</p>
+      <div class="reward-stars" id="reward-stars"></div>
+      <button id="btn-reward-continue" class="btn btn-primary">Continuar</button>
+    </div>
+  </section>
+
+  <!-- ===================== ECRÃ: ENTRADA MODO PAIS ===================== -->
+  <section id="screen-parents-gate" class="screen">
+    <button class="btn-back" data-target="screen-profiles" id="parents-gate-back">← Voltar</button>
+    <div class="gate-box">
+      <h2>Área dos pais</h2>
+      <p>Para continuar, resolve esta conta:</p>
+      <p id="gate-question" class="gate-question"></p>
+      <input id="gate-answer" class="text-input gate-input" type="number" placeholder="Resposta">
+      <button id="btn-gate-confirm" class="btn btn-primary">Entrar</button>
+      <p id="gate-error" class="gate-error"></p>
+    </div>
+  </section>
+
+  <!-- ===================== ECRÃ: MODO PAIS ===================== -->
+  <section id="screen-parents" class="screen">
+    <button class="btn-back" data-target="screen-profiles">← Voltar</button>
+    <h2>Área dos pais</h2>
+
+    <div class="parents-section">
+      <h3>Progresso por explorador</h3>
+      <div id="parents-report"></div>
+    </div>
+
+    <div class="parents-section">
+      <h3>Tempo de ecrã diário</h3>
+      <p class="hint">Define quantos minutos por dia cada explorador pode usar a app. Ao atingir o limite, a app sugere uma pausa.</p>
+      <div class="time-limit-row">
+        <input id="time-limit-input" type="range" min="0" max="90" step="5" value="30">
+        <span id="time-limit-value">30 min</span>
+      </div>
+    </div>
+
+    <div class="parents-section">
+      <h3>Repor progresso</h3>
+      <p class="hint">Apaga todas as estrelas e o progresso guardado neste dispositivo.</p>
+      <button id="btn-reset-all" class="btn btn-danger">Repor tudo</button>
+    </div>
+  </section>
+
+</div>
+
+<audio id="audio-player"></audio>
+
+<script src="js/app.js"></script>
+</body>
+</html>
